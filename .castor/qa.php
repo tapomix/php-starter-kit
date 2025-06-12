@@ -115,5 +115,7 @@ function pint(): Process
 
     $cmd = [$binary, 'app/', '--test', '-v'];
 
+    io()->title('Running Pint');
+
     return \docker\exec('php', $cmd);
 }
