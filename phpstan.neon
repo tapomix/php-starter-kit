@@ -1,0 +1,5 @@
+parameters:
+  paths:
+    - ./
+  level: 8 # max ( = 10 )
+  # editorUrl: 'vscode://file/%%file%%:%%line%%'
