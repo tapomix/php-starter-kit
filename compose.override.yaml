@@ -1,0 +1,21 @@
+services:
+  php:
+    volumes:
+      - ./:/app # only /app for Symfony/Laravel project (not /app/public)
+    environment:
+      CADDY_GLOBAL_OPTIONS: debug
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    tty: false
+
+  # add sql sub-directory to load data
+  db:
+    volumes:
+      - .docker/db/sql:/sql:ro
+
+  node:
+    profiles: ['dev']
+    image: node:22-alpine
+    volumes:
+      - ./:/app
+    command: sleep infinity

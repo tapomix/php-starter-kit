@@ -1,0 +1,36 @@
+services:
+  php:
+    build:
+      context: .docker/php
+      target: php_${PHP_BUILD_TARGET:-dev}
+    environment:
+      SERVER_NAME: "${DC_SRV_NAME:-localhost}"
+    ports:
+      - target: 443
+        published: ${DC_SRV_PORT:-443}
+        protocol: tcp
+    user: ${DC_UID:-1000}:${DC_GID:-1000}
+    volumes:
+      - caddy_data:/data
+      - caddy_config:/config
+#    networks:
+#      - puppeteer_network
+
+  db:
+    image: library/postgres:${DC_DB_VERSION:-17}-alpine
+    environment:
+      POSTGRES_DB: "${DC_DB_NAME:-app}"
+      POSTGRES_USER: "${DC_DB_USER:-pg}"
+      POSTGRES_PASSWORD: "${DC_DB_PASS:-dev}"
+    ports:
+      - ${DC_DB_PORT:-5432}:5432
+    volumes:
+      - .docker/db/data:/var/lib/postgresql/data:rw
+
+volumes:
+  caddy_data:
+  caddy_config:
+
+#networks:
+#  puppeteer_network:
+#    external: true
