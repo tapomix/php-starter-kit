@@ -20,8 +20,9 @@
 /node_modules
 
 # qa #
-/rector.php
 /phpstan.neon
+/pint.json
+/rector.php
 
 # laravel #
 /.env
