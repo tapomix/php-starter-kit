@@ -24,7 +24,14 @@
 /phpstan.neon
 
 # laravel #
-/_ide_helper*.php
 /.env
+
+/public/storage
+/public/build
+/storage
+
+/_ide_helper*.php
+
+/database/*.sqlite
 
 ###< tapomix/php-starter-kit ###
