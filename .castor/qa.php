@@ -15,10 +15,10 @@ use function Castor\parallel;
 #[AsTask(description: 'Run all quality assurance tasks', aliases: ['qa'])]
 function all(bool $parallel = false): int
 {
-    io()->title('Running all quality assurance tasks');
+    io()->title('Running all QA tools');
 
     if ($parallel) {
-        [$rector, $phpstan, $phpcs, $lint, $pint] = parallel(
+        [$rector, $phpstan, $phpcs] = parallel(
             fn (): Process => rector(),
             fn (): Process => phpstan(),
             fn (): Process => phpcs(),
