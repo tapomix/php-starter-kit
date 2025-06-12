@@ -28,7 +28,6 @@
 
 /public/storage
 /public/build
-/storage
 
 /_ide_helper*.php
 
