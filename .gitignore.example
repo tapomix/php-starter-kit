@@ -13,6 +13,7 @@
 /.castor/app.php
 
 /.devcontainer
+/.env.docker
 
 # libs
 /vendor
