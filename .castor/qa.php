@@ -12,27 +12,27 @@ use function Castor\fs;
 use function Castor\io;
 use function Castor\parallel;
 
-#[AsTask(description: 'Run all quality assurance tasks', aliases: ['qa'])]
+#[AsTask(description: 'Run all QA tools', aliases: ['qa'])]
 function all(bool $parallel = false): int
 {
     io()->title('Running all QA tools');
 
     if ($parallel) {
-        [$rector, $phpstan, $phpcs] = parallel(
+        [$rector, $phpstan, $pint] = parallel(
             fn (): Process => rector(),
             fn (): Process => phpstan(),
-            fn (): Process => phpcs(),
+            fn (): Process => pint(),
         );
     } else {
         $rector = rector();
         $phpstan = phpstan();
-        $phpcs = phpcs();
+        $pint = pint();
     }
 
     return max(
         $rector->getExitCode() ?? 0,
         $phpstan->getExitCode() ?? 0,
-        $phpcs->getExitCode() ?? 0,
+        $pint->getExitCode() ?? 0,
     );
 }
 
