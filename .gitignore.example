@@ -1,0 +1,22 @@
+###> tapomix/php-starter-kit ###
+
+# ide #
+/.idea
+/.vscode
+
+# dev #
+/TODO.md
+*.patch
+*.drawio
+
+.castor.stub.php
+/.castor/app.php
+
+/.devcontainer
+
+# qa #
+/rector.php
+/phpstan.neon
+/.php-cs-fixer.php
+
+###< tapomix/php-starter-kit ###
