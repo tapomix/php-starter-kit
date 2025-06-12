@@ -1,0 +1,9 @@
+# gitignore for the php-starter-kit project
+
+# ide #
+/.idea
+/.vscode
+
+# dev #
+/TODO.md
+*.patch
