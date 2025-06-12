@@ -29,7 +29,7 @@ Prefixes can be mixed like this :
 
 > Rework the code without adding new feature
 
-### [config]
+### [conf]
 
 > Config related changes
 
