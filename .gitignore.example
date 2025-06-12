@@ -13,6 +13,11 @@
 /.castor/app.php
 
 /.devcontainer
+/.env.docker
+
+# libs
+/vendor
+/node_modules
 
 # qa #
 /rector.php
