@@ -17,6 +17,9 @@
 # qa #
 /rector.php
 /phpstan.neon
-/.php-cs-fixer.php
+
+# laravel #
+/_ide_helper*.php
+/.env
 
 ###< tapomix/php-starter-kit ###
