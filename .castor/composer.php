@@ -2,6 +2,7 @@
 
 namespace composer;
 
+use Castor\Attribute\AsRawTokens;
 use Castor\Attribute\AsTask;
 
 use function Castor\context;
@@ -21,5 +22,5 @@ function execGlobal(
     #[AsRawTokens]
     array $args = [],
 ): void {
-    \docker\exec('php', array_merge(['composer', 'global'], $args), context('interactive'));
+    exec(array_merge(['global'], $args));
 }
